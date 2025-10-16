@@ -9,7 +9,7 @@ It integrates **Google Gemini 2.5 Pro** for intelligent text understanding and a
 ## 🌐 Live Demo
  
 🧠 **Backend Repo:** [https://github.com/kavyak1604/Adaptive_Agent-Backend](#)  
-💻 **Frontend Repo:** [https://github.com/kavyak1604/Adaptive_Agent-Frontend](#)
+💻 **Frontend Repo:** [https://github.com/kavyak1604/SmartLearn-Frontend](#)
 
 ---
 
