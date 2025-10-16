@@ -86,5 +86,5 @@ SmartLearn delivers an adaptive and user-centric learning experience through:
 
 ### 1️⃣ Clone & Navigate
 ```bash
-git clone https://github.com/kavyak1604/Adaptive_Agent-Frontend.git
+git clone https://github.com/kavyak1604/SmartLearn-Frontend.git
 cd Adaptive_Agent-Frontend
