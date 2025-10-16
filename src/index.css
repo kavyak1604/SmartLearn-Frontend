@@ -1,68 +1,83 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Flashcard flipping effect */
+.perspective {
+  perspective: 1000px;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+.flashcard {
+  transform-style: preserve-3d;
 }
-a:hover {
-  color: #535bf2;
+
+.flashcard-container:hover .flashcard {
+  transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* 🎁 Gift Box Animation */
+.giftbox {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  perspective: 600px;
+}
+
+.giftbox .lid {
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(to right, #ec4899, #8b5cf6);
+  top: 0;
+  border-radius: 8px 8px 0 0;
+  transform-origin: top;
+  transition: transform 0.6s;
+}
+
+.giftbox:hover .lid {
+  transform: rotateX(-120deg);
+}
+
+.giftbox .box-body {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  bottom: 0;
+  background: linear-gradient(to right, #f9a8d4, #d8b4fe);
+  border-radius: 0 0 8px 8px;
+}
+
+/* Reveal animation */
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.reveal-animation {
+  animation: pop 0.4s ease-out;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  background-color: #0a0118;
+  background-image: radial-gradient(circle at 10% 20%, rgba(90, 0, 150, 0.15) 0%, transparent 20%),
+                    radial-gradient(circle at 80% 60%, rgba(255, 0, 120, 0.1) 0%, transparent 20%);
+  background-repeat: no-repeat;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
